@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import {
   useGetTodoQuery,
   usePostTodosMutation,
-  useDeleteTodosMutation,
 } from "../redux/service/todo-api";
 import { Card } from "../components/card";
 
@@ -13,7 +12,6 @@ export const Home = () => {
   const [postTodo] = usePostTodosMutation();
 
   const { data, isLoading } = useGetTodoQuery(page);
-  
 
   const submit = (data) => {
     postTodo(data)
@@ -63,8 +61,8 @@ export const Home = () => {
           return (
             <button
               onClick={() => setPage(number)}
-              className={`p-3 bg-red-400 ${
-                number === page ? "bg-blue-500" : ""
+              className={`p-3  ${
+                number === page ? "bg-blue-500" : "bg-red-400"
               }`}
               key={number}
             >

@@ -16,4 +16,5 @@ export const store = configureStore({
 
 store.subscribe(() => {
   saveState("users", store.getState().user);
+  saveState("todos", store.getState().todo);
 });

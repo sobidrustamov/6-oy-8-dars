@@ -11,8 +11,6 @@ import { nanoid } from "@reduxjs/toolkit";
 export const UserPage = () => {
   const { data } = useGetUserQuery();
   const dispatch = useDispatch();
-  console.log(data);
-  // dispatch(add( data ));
 
   const [postUser] = usePostUserMutation();
 
@@ -21,7 +19,7 @@ export const UserPage = () => {
   console.log(user);
 
   const submit = (data) => {
-    dispatch(add({...data,id:nanoid()}));
+    dispatch(add({ ...data, id: nanoid() }));
     postUser(data)
       .unwrap()
       .then((res) => {});
